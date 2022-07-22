@@ -28,17 +28,18 @@ html, body{
     width: 150px;
     border-radius: 50%;
     background-color: purple;
-    /* padding: ; */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 5px;
-    padding-right: 5px;
-    padding-left: 2px;
-
 
 }
 .profile{
-    height: 140px;
-    width: 140px;
+    height: 90%;
+    width: 90%;
     /* border-radius: 50%; */
+    /* background-color: #008CBA; */
 }
 .coming_soon{
     color: aliceblue;
