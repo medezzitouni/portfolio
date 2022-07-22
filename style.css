@@ -15,13 +15,39 @@ html, body{
     display: flex;
     justify-content: space-between;
 }
+.avatar_container{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #008CBA; */
+}
+.avatar{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: purple;
+    /* padding: ; */
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 2px;
+
+
+}
+.profile{
+    height: 140px;
+    width: 140px;
+    /* border-radius: 50%; */
+}
 .coming_soon{
     color: aliceblue;
     height: 100%;
-    width: 57%;
+    width: 30%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-end;
+    /* background-color: #2EE59D; */
 }
 .resume{
     height: 50%;
