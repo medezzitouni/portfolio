@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  assetPrefix: '/portfolio/', 
+  assetPrefix: 'https://methe-1.github.io/portfolio/',
   basePath: '/portfolio',
   images: {
     loader: 'akamai',
