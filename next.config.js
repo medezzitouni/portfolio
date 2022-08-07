@@ -1,13 +1,38 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  assetPrefix: 'https://methe-1.github.io/portfolio/',
-  basePath: '/portfolio',
-  images: {
-    loader: 'akamai',
-    path: '',
-  },
-}
+// /** @type {import('next').NextConfig} */
 
-module.exports = nextConfig
+const withPlugins = require('next-compose-plugins');
+const optimizedImages = require('next-optimized-images');
+
+
+module.exports = withPlugins([
+  [optimizedImages, {
+    mozjpeg: {
+      quality: 80,
+    },
+    pngquant: {
+      speed: 3,
+      strip: true,
+      verbose: true,
+    },
+    imagesPublicPath: '/portfolio/assets/',
+  }],
+  {
+    basePath: '/portfolio',
+    assetPrefix: '/portfolio/',
+    // env,
+  },
+]);
+
+// const nextConfig = {
+//   reactStrictMode: true,
+//   assetPrefix: 'https://methe-1.github.io/portfolio/',
+//   basePath: '/portfolio',
+//   images: {
+//     loader: 'akamai',
+//     path: ''
+//   },
+  
+// }
+
+// module.exports = nextConfig
 
