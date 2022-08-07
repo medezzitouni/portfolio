@@ -19,7 +19,7 @@ const ComingSoon: NextPage = () => {
           <Col xs={12} sm={12} md={4} className={styles.download} >
             <div className={styles.resume}>
                 <div className={styles.downloadButton}>
-                    <a href="./Med_Resume.pdf" download>Download My Resume</a>
+                    <a href={ process.env.BACKEND_URL + "/Med_Resume.pdf"} download>Download My Resume</a>
                 </div>
             </div>
           </Col>
