@@ -1,38 +1,38 @@
-// /** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 
-const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
+// const withPlugins = require('next-compose-plugins');
+// const optimizedImages = require('next-optimized-images');
 
 
-module.exports = withPlugins([
-  [optimizedImages, {
-    mozjpeg: {
-      quality: 80,
-    },
-    pngquant: {
-      speed: 3,
-      strip: true,
-      verbose: true,
-    },
-    imagesPublicPath: '/portfolio/assets/',
-  }],
-  {
-    basePath: '/portfolio',
-    assetPrefix: '/portfolio/',
-    // env,
-  },
-]);
-
-// const nextConfig = {
-//   reactStrictMode: true,
-//   assetPrefix: 'https://methe-1.github.io/portfolio/',
-//   basePath: '/portfolio',
-//   images: {
-//     loader: 'akamai',
-//     path: ''
+// module.exports = withPlugins([
+//   [optimizedImages, {
+//     mozjpeg: {
+//       quality: 80,
+//     },
+//     pngquant: {
+//       speed: 3,
+//       strip: true,
+//       verbose: true,
+//     },
+//     imagesPublicPath: '/portfolio/assets/',
+//   }],
+//   {
+//     basePath: '/portfolio',
+//     assetPrefix: '/portfolio/',
+//     // env,
 //   },
-  
-// }
+// ]);
 
-// module.exports = nextConfig
+const nextConfig = {
+  reactStrictMode: true,
+  assetPrefix: '/portfolio/',
+  basePath: '/portfolio',
+  images: {
+    loader: 'akamai',
+    path: ''
+  },
+  
+}
+
+module.exports = nextConfig
 
