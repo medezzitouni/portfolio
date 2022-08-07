@@ -10,7 +10,7 @@ const ComingSoon: NextPage = () => {
         <Row className={styles.upperRow}>
           <Col xs={6} sm={6} md={4} className={styles.logo} >
             <div className={styles.avatar}>
-              <Image src="/assets/profile.png" height={'100%'} width={'100%'} alt="profile" />
+              <Image src="/assets/profile.png" unoptimized={true} height={'100%'} width={'100%'} alt="profile" />
             </div>
           </Col>
           <Col xs={6} sm={6} md={4} className={styles.coming} >
