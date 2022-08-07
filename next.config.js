@@ -28,7 +28,7 @@ const nextConfig = {
   assetPrefix: '/portfolio/',
   basePath: '/portfolio',
   images: {
-    loader: 'akamai',
+    loader: 'imgix',
     path: ''
   },
   
