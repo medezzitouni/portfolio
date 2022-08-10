@@ -1,5 +1,7 @@
 
 
+const { ENV } = process.env
+
 module.exports = {
-  'process.env.BACKEND_URL': '/portfolio'
+  'process.env.BACKEND_URL': ENV == 'dev' ? '' : '/portfolio/'
 }
