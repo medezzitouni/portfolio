@@ -3,11 +3,48 @@
 .container{
 
 }
-
+/* sideBar */
+.sideBar{
+    background-color: wheat;
+    padding: 0;
+    display: grid;
+    align-content: space-between;
+}
+.buttonContainer{
+    width: 100%;
+    height: 8vh;
+    display: grid;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.chevronButton{
+    z-index: 1;
+    margin-right: -15px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.icon{
+    height: fit-content;
+}
+.socialContainer{
+    display: grid;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 80vh;
+}
+.sm{
+    margin-top: 20px;
+}
 /* left section  */
 .leftContainer{
     background-color: rgba(56, 65, 59, .8);
     height: 100vh;
+    width: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,25 +63,11 @@
     backdrop-filter: blur(4px);
 }
 
-.chevronButton{
-    position: absolute;
-    top: 30px;
-    left: 50px;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-.icon{
-    height: fit-content;
-}
-
 /* right section  */
 .rightContainer{
     background-color: wheat;
     height: 100vh;
+    width: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,6 +89,7 @@
     align-items: center;
 }
 .button{
+    /* display: inline-block; */
     padding: 15px;
     font-family: 'Amatic SC', cursive;
     line-height: 30px;
@@ -90,4 +114,66 @@
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: black;
     transform: translateY(-7px);
+}
+
+
+
+@media (max-width: 600px) {
+    .leftContainer{
+        height: 50vh;
+    }
+    .rightContainer{
+        /* height: 0vh; */
+    }
+    .buttonContainer{
+        width: 15%;
+        height: 15vh;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        /* background-color: #2EE59D; */
+    }
+    .chevronButton{
+        /* z-index: 1; */
+        margin-top: 0px;
+        /* border-radius: 50%; */
+        height: 50px;
+        width: 50px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon{
+        height: fit-content;
+        height: 30px;
+        width: 30px;
+    }
+    .sideBar{
+        display: flex;
+    }
+    .socialContainer{
+        display: grid;
+        justify-content: space-around;
+        align-items: center;
+        width: 85%;
+        /* background-color: blue; */
+        height: 15vh;
+    }
+    .socialContainerCol{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 60vh;
+        /* background-color: red; */
+    }
+    .sm > a > svg{
+        height: 50px;
+        width: 50px;
+    }
+    .sm{
+        margin-top: 0;
+        /* background-color: blue; */
+        /* height: 100%; */
+    }
 }

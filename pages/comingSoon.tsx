@@ -14,7 +14,7 @@ const ComingSoon: NextPage = () => {
             </div>
           </Col>
           <Col xs={6} sm={6} md={4} className={styles.coming} >
-             <div className="animate__animated animate__bounce animate__infinite  animate__slower"> 👨‍💻 Coming Soon❗  </div>
+             <div className="animate__animated animate__bounce animate__infinite  animate__slower">  Coming Soon❗👨‍💻  </div>
           </Col>
           <Col xs={12} sm={12} md={4} className={styles.download} >
             <div className={styles.resume}>

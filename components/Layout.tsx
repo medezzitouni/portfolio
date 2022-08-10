@@ -12,7 +12,7 @@ interface LayoutProps {
 const Layout: NextPage<LayoutProps> = ({ children }: LayoutProps) => {
   
   return (
-    <Container fluid style={{ minHeight: '100vh', minWidth: '100vh', paddingRight: 0, paddingLeft: 60, backgroundColor: 'wheat' }}>
+    <Container fluid style={{ minHeight: '100vh', minWidth: '100vh', padding: 0 }}>
       <Head>
         <title>Methe</title>
         <meta name="description" content="portfolio" />
