@@ -4,8 +4,8 @@ const { ENV } = process.env
 
 const nextConfig = {
   reactStrictMode: true,
-  assetPrefix: ENV == 'dev' ? '' : '/portfolio/',
-  basePath: ENV == 'dev' ? '' : '/portfolio/',
+  assetPrefix: ENV == 'prod' ? '/portfolio/' : '',
+  basePath: ENV == 'prod' ? '/portfolio/' : '',
   images: {
     loader: 'imgix',
     path: ''
