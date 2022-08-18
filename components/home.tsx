@@ -76,7 +76,7 @@ const ComingSoon: NextPage = () => {
                 <Col className={[ show ? styles.socialContainer_expanded + ' ' + styles.sm : styles.socialContainer_collapsed].join(' ')} xs={2} md={12} >
                   <a href={ process.env.BACKEND_URL + "/Med_Resume.pdf"} download 
                   target="_blank" rel='noreferrer' 
-                  title="Download Methe's resume" className={styles.mouveup + " animate__animated animate__shakeX animate__slower animate__infinite	"}>
+                  title="Download Methe's resume" className={styles.mouveup + " animate__animated animate__shakeX animate__slower animate__delay-1s animate__repeat-3	"}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="dark" className="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16"> <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/> </svg>
                   </a>
                   <span className={[styles.smTitle, show ? 'd-flex' : 'd-none' ].join(' ')}>Download Resume</span>
