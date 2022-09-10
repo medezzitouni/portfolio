@@ -17,7 +17,7 @@ const Layout: NextPage<LayoutProps> = ({ children }: LayoutProps) => {
         <title>Methe</title>
         <meta name="description" content="portfolio" />
         <link rel="icon" href={process.env.BACKEND_URL + "/favicon.ico" }/>
-        
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </Head>
 
       <main className={styles.main}>
