@@ -9,7 +9,7 @@ import { Container, Row, Col, Offcanvas, Button } from 'react-bootstrap'
 import { useState } from 'react';
 
 
-const ComingSoon: NextPage = () => {
+const Home: NextPage = () => {
 
   const [show, setShow] = useState(true);
 
@@ -25,9 +25,6 @@ const ComingSoon: NextPage = () => {
   }
 
   useEffect(() => {
-    console.log('====================================');
-    console.log(window.innerWidth, window.screen);
-    console.log('====================================');
     (window.innerWidth < 600 || window.screen.width < 600) && (setShow(false));
   }, [])
 
@@ -120,7 +117,7 @@ const ComingSoon: NextPage = () => {
                      />
                 </Col>
                 <Col md={12} className={styles.seeMyWork}>
-                  <a href={ process.env.BACKEND_URL + "/comingSoon"} style={{ textDecoration: 'none' }}>
+                  <a href={ process.env.BACKEND_URL + "/work"} style={{ textDecoration: 'none' }}>
                     <div className={styles.button} > SEE MY WORK </div>
                   </a>
                 </Col>
@@ -132,4 +129,4 @@ const ComingSoon: NextPage = () => {
   )
 }
 
-export default ComingSoon
+export default Home
