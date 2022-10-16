@@ -117,7 +117,7 @@ const Home: NextPage = () => {
                      />
                 </Col>
                 <Col md={12} className={styles.seeMyWork}>
-                  <a href={ process.env.BACKEND_URL + "/work"} style={{ textDecoration: 'none' }}>
+                  <a href={ process.env.BACKEND_URL + "work"} style={{ textDecoration: 'none' }}>
                     <div className={styles.button} > SEE MY WORK </div>
                   </a>
                 </Col>
