@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export",
-    "deploy": "NODE_ENV=production &&  next build && next export -o v2_out && rm -rf ../deploy/* && mv v2_out/* ../deploy/  && touch ../deploy/.nojekyll && git add ../deploy && git commit -m \"Deploy gh-pages\" && cd .. && git subtree push --prefix deploy origin gh-pages"
+    "deploy": "NODE_ENV=production && next build && next export -o v2_out  && touch v2_out/.nojekyll && git add v2_out && git commit -m \"Deploy gh-pages\" && git subtree push --prefix v2_out origin gh-pages"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
