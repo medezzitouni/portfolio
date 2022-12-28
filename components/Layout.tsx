@@ -11,6 +11,7 @@ interface LayoutProps {
 
 const Layout: NextPage<LayoutProps> = ({ children }: LayoutProps) => {
   
+  
   return (
     <Container fluid style={{ minHeight: '100vh', minWidth: '100vh', padding: 0 }}>
       <Head>
