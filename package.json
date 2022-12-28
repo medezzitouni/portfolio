@@ -9,7 +9,7 @@
     "lint": "next lint",
     "export": "next build && next export",
     "deploy": "NODE_ENV=production && next build && next export -o v2_out  && touch v2_out/.nojekyll && git add v2_out && git commit -m \"Deploy gh-pages\" && git subtree push --prefix v2_out origin gh-pages",
-    "deply_v3" : "git add out && git commit -m \"Deploy portfolio v3\" && git subtree push --prefix out origin portfolio-v3 "
+    "deploy_v3" : "git add out && git commit -m \"Deploy portfolio v3\" && git subtree push --prefix out origin portfolio-v3 "
     
   },
   "dependencies": {
