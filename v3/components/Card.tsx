@@ -1,7 +1,7 @@
 
 function Crad({ title, year, image, link, children, body }: CardProps) {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="shadow-2xl shadow-black max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
       {/* image  */}
       <a href="#">
         {/* eslint-disable-next-line @next/next/no-img-element */}

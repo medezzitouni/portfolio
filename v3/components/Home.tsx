@@ -14,12 +14,7 @@ import Link from "next/link";
 const Home: NextPage = () => {
   const [show, setShow] = useState(true);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  useEffect(() => {
-    (window.innerWidth < 600 || window.screen.width < 600) && setShow(false);
-  }, []);
+  const handleShow = () => setShow(!show);
 
   return (
     <div className="min-h-screen">
@@ -28,25 +23,14 @@ const Home: NextPage = () => {
           className={` h-[6.8vh] ${show ? "lg:basis-1/6" : "lg:basis-1/12"}`}
         >
           <div
-            className={[
-              "w-full h-[8vh] hidden lg:grid lg:place-items-end",
-            ].join(" ")}
+            className="w-full h-[8vh] hidden lg:grid lg:place-items-end "
           >
-            {!show ? (
-              <button
+            <button
                 onClick={handleShow}
-                className={[styles.chevronButton, "bg-black"].join(" ")}
-              >
-                <BiChevronRight size={20} className={styles.icon} />
-              </button>
-            ) : (
-              <button
-                onClick={handleClose}
-                className={[styles.chevronButton, "bg-black"].join(" ")}
-              >
-                <BiChevronLeft size={20} className={styles.icon} />
-              </button>
-            )}
+                className={[styles.chevronButton, "bg-black  shadow-md shadow-black"].join(" ")}
+            >
+              {!show ? <BiChevronRight size={20} /> : <BiChevronLeft size={20} />}
+            </button>
           </div>
           <Socials show={show} />
         </div>
@@ -64,9 +48,8 @@ const Home: NextPage = () => {
         >
           <div
             className={[
-              styles.fontFamily,
               styles.text_shadow,
-              "text-5xl no-italic font-normal uppercase leading-[61px] text-black",
+              "font-amatic text-5xl no-italic font-normal uppercase leading-[61px] text-black",
             ].join(" ")}
           >
             Hi there, i’M
@@ -88,13 +71,23 @@ const Home: NextPage = () => {
                   alt="profile"
                 />    
               </div> 
-              <div className="w-[70%] md:w-[50%]">
-              <Link
-                href={"/projects"}
-                style={{ textDecoration: "none" }}
-              >
-                <div className={styles.button}> SEE MY WORK </div>
-              </Link>
+              <div className="w-[70%] md:w-[50%] shadow-2xl shadow-black rounded-full">
+                <Link
+                  href={"/projects"}
+                >
+                  <div className={`
+                    p-4 
+                    bg-black 
+                    rounded-full 
+                    font-amatic 
+                    font-normal
+                    text-2xl 
+                    text-center
+                    text-white 
+                    leading-[30px] 
+                    uppercase
+                  `}> SEE MY WORK </div>
+                </Link>
               </div>
             </div>
         </div>

@@ -115,7 +115,9 @@ const Socials : NextPage<SocialProps> = ({ show=true, vertical = true }: SocialP
                 // download={social.text == 'Download Resume'}
                 className="grid place-items-center"
             >
-                {social.svg}
+                <span>
+                  {social.svg}
+                </span>
                 <span
                 style={{
                     color: social.textColor,

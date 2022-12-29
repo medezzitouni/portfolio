@@ -16,6 +16,12 @@ module.exports = {
       },
       height:{
         '1/12': '8.33%'
+      },
+      fontFamily: {
+        amatic:  ['Amatic SC', 'cursive']
+      },
+      textShadow: {
+        shadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
       }
     },
   },

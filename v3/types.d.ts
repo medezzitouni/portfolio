@@ -4,6 +4,11 @@ interface LayoutProps {
   header?: React.ReactNode;
   footer?: React.ReactNode
 }
+
+interface HeaderProps {
+  className?: string;
+}
+
 interface SocialProps {
   children?: React.ReactNode;
   show?: boolean;
