@@ -4,24 +4,29 @@ import { ReactNode } from 'react';
 // import { Container } from 'react-bootstrap';
 
 
-const Layout: NextPage<LayoutProps> = ({ children }: LayoutProps) => {
-
+const Layout: NextPage<LayoutProps> = ({ header, children,  footer }: LayoutProps) => {
   return (
     <>
       <Head>
         <title>Methe</title>
         <meta name="description" content="portfolio" />
         <link rel="icon" href={process.env.BACKEND_URL + "/favicon.ico" }/>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
-      </Head>
-
-      <main className='mx-auto lg:min-h-screen bg-primary'> 
+       </Head>
+      <main className='mx-auto lg:min-h-screen bg-primary' >
+        {header &&
+          <header className="flex flex-row h-[12vh] bg-secondary">
+            {header}
+          </header>
+        }
+        {/* content  */}
         { children }
+        {/* content  */}
+        {footer &&
+          <footer className="h-[10vh] grid place-items-center">
+            {footer}
+          </footer>
+        }
       </main>
-
-      <footer className='hidden'>
-       
-      </footer>
     </>
   )
 }
