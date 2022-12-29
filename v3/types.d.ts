@@ -5,6 +5,10 @@ interface LayoutProps {
   footer?: React.ReactNode
 }
 
+interface Category {
+  name: string;
+  active: boolean;
+}
 interface HeaderProps {
   className?: string;
 }
@@ -30,4 +34,5 @@ interface Project {
   image: string;
   link:  string;
   body:  string;
+  category: 'Professional' | 'Personal' | 'Contribution' | 'Github';
 }

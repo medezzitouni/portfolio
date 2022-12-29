@@ -22,10 +22,14 @@ const Header: NextPage = ({ className="w-full h-[12vh] mb-2 bg-secondary shadow-
                 lg:h-[50%]
                 
                 rounded-full
-                text-secondary 
-                text-xl
+                
+                text-black
+                font-amatic 
+                text-3xl
+
                 grid
                 place-items-center
+                
                 shadow-md
                 shadow-black
             `} 
