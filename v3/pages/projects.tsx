@@ -16,7 +16,7 @@ const initialProjects: Project[] = [
     },
     {   
         title: 'Easylens' ,
-        year: '2019/2022',
+        year: '2021/2022',
         image: process.env.BACKEND_URL + "/assets/easylens.png",
         link:  'https://app.easylens.ma',
         body:  'EasyLens aims to make the optician workflow easier by moving the process of ordering optic products online, providing qualitative and professional features that help the optician automate his daily tasks, manage his inventory, discover new products and suppliers, order, and track orders, and more.',
