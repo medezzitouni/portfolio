@@ -34,7 +34,7 @@ const initialProjects: Project[] = [
         title: 'Walo',
         year: '2021/2022',
         image: process.env.BACKEND_URL + "/assets/walo.png",
-        link:  'https://www.ametys.org/fr/index.html',
+        link:  'https://walo.app',
         body:  'Walo provides a solution to enhance the financial well-being of future generations through experiential learning. Not everyone has the chance to start their financial journey on the right foot. We created WALO to give every kid an opportunity to learn how to be financially healthy. We brought together a dedicated team with extensive work experience in multiple sectors to create a product that matters.',
         category: 'Professional'
     },
