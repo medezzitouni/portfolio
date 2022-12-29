@@ -1,6 +1,8 @@
 
 interface LayoutProps {
-    children: React.ReactNode;
+  children?: React.ReactNode;
+  header?: React.ReactNode;
+  footer?: React.ReactNode
 }
 interface SocialProps {
   children?: React.ReactNode;
