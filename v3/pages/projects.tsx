@@ -79,7 +79,7 @@ const Project: NextPage = () => {
     return (
     <Layout>
         <div className='min-h-[78vh] pt-6 px-6 flex flex-col items-center'>
-            <div className="mb-6 flex">
+            <div className="mb-6 hidden lg:flex">
                 {categories.map((category: Category, index: number) => (
                     <div
                         onClick={() => filterCategory(category.name)}
