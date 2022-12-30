@@ -4,8 +4,10 @@ import styles from '../styles/Project.module.css'
 import Layout from "../components/Layout/Layout";
 import Crad from "../components/Card";
 import { useCallback, useState } from "react";
+import Category from "../components/Category";
+import type { Project as ProjectTypes, Category as CategoryType } from '../types'
 
-const initialProjects: Project[] = [
+const initialProjects: ProjectTypes[] = [
     {   
         title: 'SuperChat' ,
         year: '2019',
@@ -41,7 +43,7 @@ const initialProjects: Project[] = [
     
 ]
 
-const initialCategories: Category[] = [
+const initialCategories: CategoryType[] = [
     {
         name: 'All',
         active: true
@@ -66,39 +68,22 @@ const initialCategories: Category[] = [
 
 const Project: NextPage = () => {
     
-    const [categories, setCategories] = useState(initialCategories);
     const [projects, setProjects] = useState(initialProjects);
     
-    const filterCategory = useCallback((category: string): void => {
-        setCategories(categories.map((cat): Category => {
-            cat.active = cat.name == category ? true : false;
-            return cat;
-        }))
+    const filterProjects = useCallback((category: string): void => {
         category == 'All' ? setProjects(initialProjects) : setProjects(projects.filter((pj) => pj.category == category))
     }, [])
+    
     return (
     <Layout>
-        <div className='min-h-[78vh] pt-6 px-6 flex flex-col items-center'>
-            <div className="mb-6 hidden lg:flex">
-                {categories.map((category: Category, index: number) => (
-                    <div
-                        onClick={() => filterCategory(category.name)}
-                        key={index}
-                        className={`
-                            mr-5 py-2 px-3 
-                            cursor-pointer 
-                            font-mono text-sm 
-                            shadow-sm shadow-black  
-                            ${category.active ? 'bg-white text-black' : 'bg-black text-white'}
-                            rounded-full
-                        `}
-                    >{category.name}</div>
-                ))}
+        <div className='min-h-[78vh] px-6 flex flex-col items-center'>
+            <div className="mb-6 hidden lg:flex ">
+                <Category filter={filterProjects} />
             </div>
             {projects.length ? 
-                <div className='grid gap-5 lg:grid-cols-3 '>
+                <div className='grid gap-5 lg:grid-cols-3'>
                     { projects.sort(
-                        (p1: Project , p2: Project) => {
+                        (p1: ProjectTypes , p2: ProjectTypes) => {
                             return p1.year == p2.year ? 0 
                                     : ( p1.year < p2.year ? -1 : 1)
                         }

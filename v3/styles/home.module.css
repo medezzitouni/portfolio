@@ -1,25 +1,4 @@
-
-
-.chevronButton{
-  z-index: 1;
-  margin-right: -15px;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-
 /* leftContainer */
 .text_shadow{
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.amaticFontFamily{
-  font-family: 'Amatic SC', cursive;
-}
-
-.button:hover {
-  background-color: #2EE59D;
-  color: black;
 }

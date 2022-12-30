@@ -15,7 +15,6 @@ const Home: NextPage = () => {
   const [show, setShow] = useState(true);
 
   const handleShow = () => setShow(!show);
-
   return (
     <div className="min-h-screen">
       <div className="flex flex-col lg:flex-row">
@@ -27,7 +26,7 @@ const Home: NextPage = () => {
           >
             <button
                 onClick={handleShow}
-                className={[styles.chevronButton, "bg-black  shadow-md shadow-black"].join(" ")}
+                className={`bg-black z-10 -mr-4 rounded-full p-1.5 shadow-md shadow-black`}
             >
               {!show ? <BiChevronRight size={20} /> : <BiChevronLeft size={20} />}
             </button>
@@ -74,8 +73,8 @@ const Home: NextPage = () => {
               <div className="w-[70%] md:w-[50%] shadow-2xl shadow-black rounded-full">
                 <Link
                   href={"/projects"}
-                >
-                  <div className={`
+                  className={`
+                    block
                     p-4 
                     bg-black 
                     rounded-full 
@@ -86,7 +85,11 @@ const Home: NextPage = () => {
                     text-white 
                     leading-[30px] 
                     uppercase
-                  `}> SEE MY WORK </div>
+                    hover:bg-[#2EE59D]
+                    hover:text-black
+                  `}
+                >
+                  SEE MY WORK 
                 </Link>
               </div>
             </div>

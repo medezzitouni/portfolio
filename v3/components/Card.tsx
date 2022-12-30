@@ -1,3 +1,4 @@
+import { CardProps } from "../types";
 
 function Crad({ title, year, image, link, children, body }: CardProps) {
   return (

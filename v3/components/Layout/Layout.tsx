@@ -2,6 +2,7 @@ import type { NextPage, } from 'next'
 import Head from 'next/head'
 import Header from './Header';
 import Footer from './Footer';
+import { LayoutProps } from '../../types';
 
 const Layout: NextPage<LayoutProps> = ({ header=<Header />, children,  footer=<Footer /> }: LayoutProps) => {
   return (
