@@ -3,45 +3,14 @@ import styles from '../styles/Project.module.css'
 // import Image from 'next/image'
 import Layout from "../components/Layout/Layout";
 import Crad from "../components/Card";
-import { useCallback, useState } from "react";
+import { useEffect } from "react";
 import Category from "../components/Category";
 import type { Project as ProjectTypes, Category as CategoryType } from '../types'
+import { useDispatch, useSelector } from "react-redux";
+import { AppState} from '../store/';
+import { setInitialProjects } from "../store/sliceProjects";
 
-const initialProjects: ProjectTypes[] = [
-    {   
-        title: 'SuperChat' ,
-        year: '2019',
-        image: process.env.BACKEND_URL + "/assets/superChat.png",
-        link:  'https://superchat.onrender.com',
-        body:  'SuperChat is a small project made with Express, Socket.io, Firestore, and JQuery. It&apos;s a One-room chat between all users with simple authentication system.',
-        category: 'Personal'
-    },
-    {   
-        title: 'Easylens' ,
-        year: '2021/2022',
-        image: process.env.BACKEND_URL + "/assets/easylens.png",
-        link:  'https://app.easylens.ma',
-        body:  'EasyLens aims to make the optician workflow easier by moving the process of ordering optic products online, providing qualitative and professional features that help the optician automate his daily tasks, manage his inventory, discover new products and suppliers, order, and track orders, and more.',
-        category: 'Professional'
-    },
-    {
-        title: 'Ametys',
-        year: '2019/2020',
-        image: process.env.BACKEND_URL + "/assets/ametys.png",
-        link:  'https://www.ametys.org/fr/index.html',
-        body:  'Ametys solutions allow local authorities as well as public actors to create attractive web sites and portals adapted to the challenges and uses of citizens.Internally, they use Ametys products to create next-generation intranets and extranets: collaborative and connected to their business needs.',
-        category: 'Professional'
-    },
-    {
-        title: 'Walo',
-        year: '2021/2022',
-        image: process.env.BACKEND_URL + "/assets/walo.png",
-        link:  'https://walo.app',
-        body:  'Walo provides a solution to enhance the financial well-being of future generations through experiential learning. Not everyone has the chance to start their financial journey on the right foot. We created WALO to give every kid an opportunity to learn how to be financially healthy. We brought together a dedicated team with extensive work experience in multiple sectors to create a product that matters.',
-        category: 'Professional'
-    },
-    
-]
+
 
 const initialCategories: CategoryType[] = [
     {
@@ -68,26 +37,21 @@ const initialCategories: CategoryType[] = [
 
 const Project: NextPage = () => {
     
-    const [projects, setProjects] = useState(initialProjects);
-    
-    const filterProjects = useCallback((category: string): void => {
-        category == 'All' ? setProjects(initialProjects) : setProjects(projects.filter((pj) => pj.category == category))
+    const projects: ProjectTypes[] = useSelector((state: AppState) => state.projects.data);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setInitialProjects(null));
     }, [])
-    
     return (
     <Layout>
-        <div className='min-h-[78vh] px-6 flex flex-col items-center'>
+        <div className='min-h-[76vh] px-6 flex flex-col items-center'>
             <div className="mb-6 hidden lg:flex ">
-                <Category filter={filterProjects} />
+                <Category />
             </div>
             {projects.length ? 
                 <div className='grid gap-5 lg:grid-cols-3'>
-                    { projects.sort(
-                        (p1: ProjectTypes , p2: ProjectTypes) => {
-                            return p1.year == p2.year ? 0 
-                                    : ( p1.year < p2.year ? -1 : 1)
-                        }
-                    ).map(({ title, year, image, link, body }, index) => (
+                    { projects.map(({ title, year, image, link, body }, index) => (
                         <Crad 
                             key={index}
                             title={title}
