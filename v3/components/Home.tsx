@@ -12,7 +12,7 @@ import Socials from "./Socials";
 import Link from "next/link";
 
 const Home: NextPage = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(!show);
   return (
