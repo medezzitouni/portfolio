@@ -18,8 +18,9 @@ const pages: Page[] = [
         name: 'Articles',
         href: '/articles'
     },
-] 
-const Header: NextPage<HeaderProps> = ({ router, className="w-full px-6 lg:px-12  h-[12vh] mb-6 bg-secondary lg:shadow-sm lg:shadow-black flex flex-row" }: HeaderProps) => (
+];
+
+const Header: NextPage<HeaderProps> = ({ router, className="w-full px-6 lg:px-12  h-[12vh] mb-5 bg-secondary lg:shadow-sm lg:shadow-black flex flex-row" }: HeaderProps) => (
     <header className={className}>
         <div className='lg:basis-[20%] hidden lg:flex items-center'>
             <div

@@ -19,7 +19,10 @@ interface Page {
 }
 interface CategoryProps {
   data?: Category[];
-  filter: (category: string) => void;
+  filter?: (category: string) => void;
+  bg_active?: string;
+  bg_inactive?: string;
+  clear?: () => void;  
 }
 interface HeaderProps {
   className?: string;
