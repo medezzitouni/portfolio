@@ -1,6 +1,4 @@
 import type { NextPage } from "next";
-import Image from 'next/image';
-import { useEffect } from "react";
 import "animate.css";
 import styles from "../styles/home.module.css";
 

@@ -38,7 +38,7 @@ const initialProjects: Project[] = [
       year: '2021/2022',
       image: process.env.BACKEND_URL + "/assets/walo.png",
       link:  'https://walo.app',
-      body:  'Walo provides a solution to enhance the financial well-being of future generations through experiential learning. Not everyone has the chance to start their financial journey on the right foot. We created WALO to give every kid an opportunity to learn how to be financially healthy. We brought together a dedicated team with extensive work experience in multiple sectors to create a product that matters.',
+      body:  'Walo provides a solution to enhance the financial well-being of future generations through experiential learning. Not everyone has the chance to start their financial journey on the right foot. We created WALO to give every kid an opportunity to learn how to be financially health.',
       category: 'Professional'
   },
   
@@ -52,7 +52,7 @@ export const projectSlice = createSlice({
     data: initialProjects.sort(
       (p1: Project , p2: Project) => {
           return p1.year == p2.year ? 0 
-                  : ( p1.year < p2.year ? -1 : 1)
+                  : ( p1.year < p2.year ? 1 : -1)
       }
   )
   },
