@@ -4,6 +4,7 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { withRouter } from "next/router";
 import { HeaderProps, Page } from "../../types";
 import { MobileMenu } from "./MobileMenu";
+import { FunctionComponent } from "react";
 
 const pages: Page[] = [
     {
@@ -20,7 +21,7 @@ const pages: Page[] = [
     },
 ];
 
-const Header: NextPage<HeaderProps> = ({ router, className="w-full px-6 lg:px-12  h-[12vh] mb-5 bg-secondary lg:shadow-sm lg:shadow-black flex flex-row" }: HeaderProps) => (
+const Header: FunctionComponent<HeaderProps> = ({ router, className="w-full px-6 lg:px-12  h-[12vh] mb-5 bg-secondary lg:shadow-sm lg:shadow-black flex flex-row" }: HeaderProps) => (
     <header className={className}>
         <div className='lg:basis-[20%] hidden lg:flex items-center'>
             <div

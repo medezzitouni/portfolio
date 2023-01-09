@@ -1,12 +1,11 @@
-import { NextPage } from 'next'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, FunctionComponent } from 'react'
 import type { Category as CategoryType, CategoryProps } from '../types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../store';
 import { setActive, setInitialCat } from '../store/SliceCategory';
 import { setInitialProjects, filterProjects } from "../store/sliceProjects";
 
-const Category: NextPage<CategoryProps> = ({ data, bg_active='bg-white text-secondary', bg_inactive='bg-secondary text-white', filter, clear=() => {} }: CategoryProps) => {
+const Category: FunctionComponent<CategoryProps> = ({ data, bg_active='bg-white text-secondary', bg_inactive='bg-secondary text-white', filter, clear=() => {} }: CategoryProps) => {
 
     const categories: CategoryType[] = data || useSelector((state: AppState) => state.categories.data);
     const dispatch = useDispatch();

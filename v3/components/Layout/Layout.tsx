@@ -1,10 +1,10 @@
-import type { NextPage, } from 'next'
 import Head from 'next/head'
 import Header from './Header';
 import Footer from './Footer';
 import { LayoutProps } from '../../types';
+import { FunctionComponent } from 'react';
 
-const Layout: NextPage<LayoutProps> = ({ header=<Header />, children,  footer=<Footer /> }: LayoutProps) => {
+const Layout: FunctionComponent<LayoutProps> = ({ header=<Header />, children,  footer=<Footer /> }: LayoutProps) => {
   return (
     <>
       <Head>

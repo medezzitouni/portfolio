@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Page } from "../../types";
 import Link from "next/link";
 import Category from "../Category";
-import { useDispatch } from "react-redux";
 
 
 const pages: Page[] = [
@@ -20,9 +19,10 @@ const pages: Page[] = [
     },
 ] 
 
-export const MobileMenu = () => {
+export const MobileMenu: FunctionComponent = () => {
 
   const [menu, setMenu] = useState('');
+
   return (
     <nav className="">
       <div className="flex gap-3">

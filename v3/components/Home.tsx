@@ -1,15 +1,13 @@
-import type { NextPage } from "next";
-import "animate.css";
 import styles from "../styles/home.module.css";
 
 import { BiChevronRight, BiChevronLeft } from "react-icons/bi";
 
 // import { Container, Row, Col, Offcanvas, Button } from 'react-bootstrap'
-import { useState } from "react";
+import { FunctionComponent, useState } from "react";
 import Socials from "./Socials";
 import Link from "next/link";
 
-const Home: NextPage = () => {
+const Home: FunctionComponent = () => {
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(!show);

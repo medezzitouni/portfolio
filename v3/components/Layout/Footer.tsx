@@ -1,6 +1,7 @@
+import { FunctionComponent } from "react";
 import Socials from "../Socials";
 
-const Footer = () => (
+const Footer: FunctionComponent = () => (
     <footer className="h-[10vh] grid place-items-center">
         <div className="w-[70%] lg:w-1/3">
             <Socials vertical={false} show={false} />

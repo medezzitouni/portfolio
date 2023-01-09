@@ -1,9 +1,8 @@
-import { NextPage } from 'next'
-import { NextRouter, withRouter } from 'next/router'
-import React from 'react'
+import { withRouter } from 'next/router'
+import React, { FunctionComponent } from 'react'
 import { ComingSoonProps } from '../types'
 
-const ComingSoon: NextPage<ComingSoonProps> = ({ router, pathname=true }: ComingSoonProps) => {
+const ComingSoon: FunctionComponent<ComingSoonProps> = ({ router, pathname=true }: ComingSoonProps) => {
   return (
     <div
         className="bg-inherit h-[100%] w-full flex gap-4 items-center justify-center "
