@@ -1,11 +1,9 @@
 import styles from "../styles/home.module.css";
-
 import { BiChevronRight, BiChevronLeft } from "react-icons/bi";
-
-// import { Container, Row, Col, Offcanvas, Button } from 'react-bootstrap'
 import { FunctionComponent, useState } from "react";
 import Socials from "./Socials";
 import Link from "next/link";
+
 
 const Home: FunctionComponent = () => {
   const [show, setShow] = useState(false);
@@ -62,7 +60,7 @@ const Home: FunctionComponent = () => {
               <div className="w-[40%] lg:w-[50%]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={process.env.BACKEND_URL + "/assets/profile.png"}
+                  src={"/assets/profile.png"}
                   alt="profile"
                 />    
               </div> 
@@ -73,9 +71,9 @@ const Home: FunctionComponent = () => {
                     block
                     p-4 
                     bg-black 
-                    rounded-full 
-                    font-amatic 
+                    rounded-full
                     font-normal
+                    font-amatic
                     text-2xl 
                     text-center
                     text-white 
