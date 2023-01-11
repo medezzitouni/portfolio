@@ -60,7 +60,7 @@ const Home: FunctionComponent = () => {
               <div className="w-[40%] lg:w-[50%]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={"/assets/profile.png"}
+                  src={process.env.BACKEND_URL +  "/assets/profile.png"}
                   alt="profile"
                 />    
               </div> 
