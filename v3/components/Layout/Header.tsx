@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { withRouter } from "next/router";
-import { HeaderProps, Page } from "../../types";
+import { HeaderProps, Page } from "@types";
 import { MobileMenu } from "./MobileMenu";
 import { FunctionComponent } from "react";
 

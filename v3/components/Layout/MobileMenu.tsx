@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from "react";
-import { Page } from "../../types";
+import { Page } from "@types";
 import Link from "next/link";
 import Category from "../Category";
 

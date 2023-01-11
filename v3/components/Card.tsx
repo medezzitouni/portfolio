@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { CardProps } from "../types";
+import { CardProps } from "@types";
 
 const Crad: FunctionComponent<CardProps> = ({ title, year, image, link, children, body }: CardProps) => {
   return (

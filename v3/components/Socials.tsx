@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import React from 'react'
-import { SocialProps } from "../types";
+import { SocialProps } from "@types";
 
 const socials = [
     {

@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
-import styles from '../styles/Project.module.css'
+import styles from '~styles/Project.module.css'
 // import Image from 'next/image'
 import Layout from "../components/Layout/Layout";
 import Crad from "../components/Card";
 import { useEffect } from "react";
 import Category from "../components/Category";
-import type { Project as ProjectTypes, Category as CategoryType } from '../types'
+import type { Project as ProjectTypes, Category as CategoryType } from '@types'
 import { useDispatch, useSelector } from "react-redux";
 import { AppState} from '../store/';
 import { setInitialProjects } from "../store/sliceProjects";

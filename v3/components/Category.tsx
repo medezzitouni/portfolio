@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, FunctionComponent } from 'react'
-import type { Category as CategoryType, CategoryProps } from '../types';
+import type { Category as CategoryType, CategoryProps } from '@types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../store';
 import { setActive, setInitialCat } from '../store/SliceCategory';

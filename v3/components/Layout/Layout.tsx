@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from './Header';
 import Footer from './Footer';
-import { LayoutProps } from '../../types';
+import { LayoutProps } from '@types';
 import { FunctionComponent } from 'react';
 
 const Layout: FunctionComponent<LayoutProps> = ({ header=<Header />, children,  footer=<Footer /> }: LayoutProps) => {

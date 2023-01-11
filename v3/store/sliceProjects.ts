@@ -4,7 +4,7 @@ import { PayloadAction } from './../node_modules/@reduxjs/toolkit/src/createActi
 import { createSlice } from "@reduxjs/toolkit";
 import { AppState } from "./index";
 import { HYDRATE } from "next-redux-wrapper";
-import { Project } from "../types";
+import { Project } from "@types";
 
 
 // Initial state

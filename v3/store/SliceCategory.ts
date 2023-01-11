@@ -4,7 +4,7 @@ import { PayloadAction } from './../node_modules/@reduxjs/toolkit/src/createActi
 import { createSlice, Action } from "@reduxjs/toolkit";
 import { AppState } from "./index";
 import { HYDRATE } from "next-redux-wrapper";
-import { Category } from "../types";
+import { Category } from "@types";
 
 const initialCategories: Category[] = [
     {

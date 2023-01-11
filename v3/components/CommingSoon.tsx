@@ -1,6 +1,6 @@
 import { withRouter } from 'next/router'
 import React, { FunctionComponent } from 'react'
-import { ComingSoonProps } from '../types'
+import { ComingSoonProps } from '@types'
 
 const ComingSoon: FunctionComponent<ComingSoonProps> = ({ router, pathname=true }: ComingSoonProps) => {
   return (
