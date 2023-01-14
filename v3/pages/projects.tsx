@@ -7,8 +7,9 @@ import { useEffect } from "react";
 import Category from "../components/Category";
 import type { Project as ProjectTypes, Category as CategoryType } from '@types'
 import { useDispatch, useSelector } from "react-redux";
-import { AppState} from '../store/';
-import { setInitialProjects } from "../store/sliceProjects";
+import { AppState } from '~store';
+import { setInitialProjects } from "~store/sliceProjects";
+
 
 
 
@@ -42,7 +43,8 @@ const Project: NextPage = () => {
 
     useEffect(() => {
         dispatch(setInitialProjects(null));
-    }, [])
+    }, []);
+    
     return (
     <Layout>
         <div className='min-h-[76vh] px-6 flex flex-col items-center'>
