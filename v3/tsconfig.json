@@ -22,7 +22,9 @@
       "~hooks/*": ["hooks/*"],
       "~api/*": ["api/*"],
       "~icons/*": ["icons/*"],
-      "@types/*": ["@types/*"]
+      "@types/*": ["@types/*"],
+      "~store/*": ["store/*"],
+      "~store": ["store/index"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

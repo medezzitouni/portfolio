@@ -2,7 +2,59 @@ import React, { FunctionComponent, useState } from "react";
 import { Page } from "@types";
 import Link from "next/link";
 import Category from "../Category";
+import { useCallback } from "react";
+import styles from '~styles/mobile_menu.module.css';
 
+const setupScrolling = () => {
+  var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+  function preventDefault(e: any) {
+    e.preventDefault();
+  }
+
+function preventDefaultForScrollKeys(e: any) {
+  // @ts-ignore
+  if (keys[e.keyCode]) {
+    preventDefault(e);
+    return false;
+  }
+}
+
+// modern Chrome requires { passive: false } when adding event
+var supportsPassive = false;
+try {
+  // @ts-ignore
+  window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+    get: function () { supportsPassive = true; } 
+  }));
+} catch(e) {}
+
+var wheelOpt = supportsPassive ? { passive: false } : false;
+// // @ts-ignore
+
+var wheelEvent = typeof window === "object" && 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+  // call this to Disable
+  function disableScroll() {
+    window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+    window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+    window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+    window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+  }
+
+  // call this to Enable
+  function enableScroll() {
+    window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    // @ts-ignore
+    window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+    // @ts-ignore
+    window.removeEventListener('touchmove', preventDefault, wheelOpt);
+    window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+  }
+  return [disableScroll, enableScroll];
+}
+
+const [disable, enable] = setupScrolling();
 
 const pages: Page[] = [
     {
@@ -22,12 +74,15 @@ const pages: Page[] = [
 export const MobileMenu: FunctionComponent = () => {
 
   const [menu, setMenu] = useState('');
-
+  const handleMenu = useCallback((type: string) => {
+    setMenu(type);
+    type ? disable() : enable();
+  }, [])
   return (
     <nav className="">
       <div className="flex gap-3">
         <button
-            onClick={() => setMenu('filter')}
+            onClick={() => handleMenu('filter')}
             type="button"
             className="text-sm inline-flex items-center rounded-full text-black p-2 bg-primary lg:hidden shadow-md shadow-black 
             focus:outline-none focus:ring-2 focus:ring-gray-200 "
@@ -36,7 +91,7 @@ export const MobileMenu: FunctionComponent = () => {
 
         </button>
         <button
-            onClick={() => setMenu('href')}
+            onClick={() => handleMenu('href')}
             type="button"
             className=" text-sm inline-flex items-center text-black rounded-full p-2 bg-primary lg:hidden shadow-md shadow-black 
                 focus:outline-none focus:ring-2 focus:ring-gray-200"
@@ -61,7 +116,7 @@ export const MobileMenu: FunctionComponent = () => {
         className={`
         absolute
         ${ menu ? 'block' : 'hidden'} 
-        flex flex-col justify-center items-center top-0 left-0 w-full h-[100%] bg-black bg-opacity-60 text-sm 
+        flex flex-col justify-center items-center top-0 left-0 w-full h-[100vh] bg-black bg-opacity-90 text-sm 
         `}
       >
         <div className="bg-secondary w-[80%] h-[50%] flex flex-col shadow-2xl shadow-black rounded-xl ">
@@ -69,7 +124,7 @@ export const MobileMenu: FunctionComponent = () => {
                 relative top-5 right-5
             ">
                 <div 
-                    onClick={() => setMenu('')}
+                    onClick={() => handleMenu('')}
                     className=" bg-primary bg-opacity-50 h-[35px] w-[35px] md:h-[50px] md:w-[50px]
                     grid place-items-center  
                     text-2xl text-white rounded-full
@@ -96,7 +151,8 @@ export const MobileMenu: FunctionComponent = () => {
             </ul>
             :
             <div className={`flex flex-col gap-3 font-bold text-2xl  grow items-center justify-center`}>
-                <Category clear={() => { setTimeout(() => setMenu(''), 300)}} bg_active='bg-white text-black' bg_inactive='bg-primary bg-opacity-60 text-white' />
+                <Category clear={() => { setTimeout(() => setMenu(''), 300)}} 
+                bg_active='bg-white text-black' bg_inactive='bg-primary bg-opacity-60 text-white' />
                 {/* <CommingSoon pathname={false} /> */}
             </div>}
         </div>

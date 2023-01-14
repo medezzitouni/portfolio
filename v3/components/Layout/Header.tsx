@@ -6,6 +6,7 @@ import { HeaderProps, Page } from "@types";
 import { MobileMenu } from "./MobileMenu";
 import { FunctionComponent } from "react";
 
+    
 const pages: Page[] = [
     {
         name: 'Home',
@@ -27,7 +28,6 @@ const Header: FunctionComponent<HeaderProps> = ({ router, className="w-full px-6
             <div
                 onClick={() => router.back()}
                 className={`rounded-full bg-black`}
-                
             >
               <BsArrowLeftCircle className="shadow-md shadow-black rounded-full" size={30} />
             </div>      

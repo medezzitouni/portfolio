@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { CardProps } from "@types";
 
+
 const Crad: FunctionComponent<CardProps> = ({ title, year, image, link, children, body }: CardProps) => {
   return (
     <div className="shadow-2xl shadow-black max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -17,7 +18,7 @@ const Crad: FunctionComponent<CardProps> = ({ title, year, image, link, children
       <div className="p-5">
         <a href="#">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {title} - {year}
+            {title} | {year}
           </h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 ">
