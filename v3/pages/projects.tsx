@@ -47,7 +47,7 @@ const Project: NextPage = () => {
     
     return (
     <Layout>
-        <div className='min-h-[76vh] px-6 flex flex-col items-center'>
+        <div className='pt-[14vh] min-h-[90vh] flex flex-col items-center'>
             <div className="mb-6 hidden lg:flex ">
                 <Category />
             </div>

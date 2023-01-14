@@ -151,7 +151,7 @@ export const MobileMenu: FunctionComponent = () => {
             </ul>
             :
             <div className={`flex flex-col gap-3 font-bold text-2xl  grow items-center justify-center`}>
-                <Category clear={() => { setTimeout(() => setMenu(''), 300)}} 
+                <Category clear={() => { setTimeout(() => handleMenu(''), 300)}} 
                 bg_active='bg-white text-black' bg_inactive='bg-primary bg-opacity-60 text-white' />
                 {/* <CommingSoon pathname={false} /> */}
             </div>}
