@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { Page } from "@types";
 import Link from "next/link";
 import Category from "../Category";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { cn, setupScrolling } from '~lib/utils';
 
 
@@ -30,7 +30,13 @@ export const MobileMenu: FunctionComponent = () => {
   const handleMenu = useCallback((type: string) => {
     setMenu(type);
     type ? disable() : enable();
+  }, []);
+
+  // just in case the scrolling gets blocked unintentionally
+  useEffect(() => {
+    enable();
   }, [])
+
   return (
     <nav className="">
       <div className="flex gap-3">
