@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export ",
-    "deploy_test": "NODE_ENV=production && next build && next export && touch out/.nojekyll && cd .. && git add v3/out && git commit -m \"Deploy v3-deploy\" && git subtree push --prefix v3/out origin v3-test",
-    "build-deploy": "NODE_ENV=production && next build && next export && touch out/.nojekyll && cd .. && git add v3/out && git commit -m \"Deploy v3-deploy\" && git subtree push --prefix v3/out origin release",
+    "build:deploy:test": "NODE_ENV=production && next build && next export && touch out/.nojekyll && cd .. && git add v3/out && git commit -m \"Deploy v3-deploy\" && git subtree push --prefix v3/out origin v3-test",
+    "build:deploy:release": "NODE_ENV=production && next build && next export && touch out/.nojekyll && cd .. && git add v3/out && git commit -m \"Deploy v3-deploy\" && git subtree push --prefix v3/out origin release",
     "deploy": "cd .. && git add v3/out && git commit -m \"Deploy v3-deploy\" && git subtree push --prefix v3/out origin release"
   },
   "dependencies": {
