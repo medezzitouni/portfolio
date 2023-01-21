@@ -18,7 +18,7 @@ module.exports = {
         '1/12': '8.33%'
       },
       fontFamily: {
-        amatic:  ['Amatic SC', 'cursive']
+        amatic:  ['AmaticSC', 'cursive']
       },
       textShadow: {
         shadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'

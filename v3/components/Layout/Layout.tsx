@@ -11,10 +11,10 @@ const Layout: FunctionComponent<LayoutProps> = ({ header=<Header />, children,  
         <title>Methe</title>
         <meta name="description" content="portfolio" />
         <link rel="icon" href={process.env.BACKEND_URL + "/favicon.ico" }/>
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Comic+Neue&display=swap"
           rel="stylesheet"
-        />
+        /> */}
        </Head>
         <main className='mx-auto lg:min-h-screen bg-primary' >
           { header }
