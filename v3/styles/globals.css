@@ -1,8 +1,4 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Comic+Neue&display=swap'); */
-@font-face {
-  font-family: "AmaticSC";
-  src:url("/portfolio/assets/fonts/Amatic_SC/AmaticSC-Regular.ttf");
-}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
