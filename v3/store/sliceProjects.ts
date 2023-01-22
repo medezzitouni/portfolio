@@ -5,9 +5,33 @@ import { createSlice } from "@reduxjs/toolkit";
 import { AppState } from "./index";
 import { HYDRATE } from "next-redux-wrapper";
 import { Project } from "@types";
+import { Category } from "@types";
 
+// initial categories
+const initialCategories: Category[] = [
+    {
+        name: 'All',
+        active: true
+    },
+    {
+        name: 'Professional',
+        active: false
+    },
+    {
+        name: 'Personal',
+        active: false
+    },
+    {
+        name: 'Contribution',
+        active: false
+    },
+    {
+        name: 'Github',
+        active: false
+    },
+]
 
-// Initial state
+// Initial projects
 const initialProjects: Project[] = [
   {   
       title: 'SuperChat' ,
@@ -55,24 +79,32 @@ const initialProjects: Project[] = [
 
 // Actual Slice
 export const projectSlice = createSlice({
-  name: "projects",
+  name: "projectState",
   initialState : {
-    data: initialProjects.sort(
+    projects : initialProjects.sort(
       (p1: Project , p2: Project) => {
           return p1.year == p2.year ? 0 
                   : ( p1.year < p2.year ? 1 : -1)
       }
-  )
+    ),
+    categories: initialCategories
   },
   reducers: {
 
     // Action to set the authentication status
     setInitialProjects: (state) => {
-      state.data = initialProjects;
+      state.projects = initialProjects;
     },
     filterProjects: (state, action: PayloadAction<string>) => {
-      state.data = initialProjects.filter((project) => project.category == action.payload)
+      state.projects = initialProjects.filter((project) => project.category == action.payload)
     },
+    setActiveCat: (state, action: PayloadAction<string>) => {
+      state.categories.forEach((cat) => cat.active = cat.name == action.payload ? true : false)
+    },
+    setInitialCat: (state) => {
+        state.categories = initialCategories;
+    }, 
+
     // Special reducer for hydrating the state. Special case for next-redux-wrapper
     extraReducers: {
       // @ts-ignore
@@ -87,6 +119,6 @@ export const projectSlice = createSlice({
   },
 });
 
-export const { setInitialProjects, filterProjects } = projectSlice.actions;
+export const { setInitialProjects, filterProjects, setActiveCat, setInitialCat} = projectSlice.actions;
 
 export default projectSlice.reducer;

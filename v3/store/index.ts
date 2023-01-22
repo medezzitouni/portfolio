@@ -7,7 +7,7 @@ const makeStore = () =>
   configureStore({
     reducer: {
       [projectSlice.name]: projectSlice.reducer,
-      [CategorySlice.name]: CategorySlice.reducer,
+      // [CategorySlice.name]: CategorySlice.reducer,
     },
     devTools: true,
   });

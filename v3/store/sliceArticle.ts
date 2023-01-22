@@ -6,34 +6,13 @@ import { AppState } from "./index";
 import { HYDRATE } from "next-redux-wrapper";
 import { Category } from "@types";
 
-const initialCategories: Category[] = [
-    {
-        name: 'All',
-        active: true
-    },
-    {
-        name: 'Professional',
-        active: false
-    },
-    {
-        name: 'Personal',
-        active: false
-    },
-    {
-        name: 'Contribution',
-        active: false
-    },
-    {
-        name: 'Github',
-        active: false
-    },
-]
+const initialArticles: Category[] = []
 
 // Actual Slice
-export const CategorySlice = createSlice({
-  name: "categories",
+export const ArticleSlice = createSlice({
+  name: "articles",
   initialState : {
-    data: initialCategories
+    data: initialArticles
   } ,
   reducers: {
 
@@ -41,7 +20,7 @@ export const CategorySlice = createSlice({
         state.data.forEach((cat) => cat.active = cat.name == action.payload ? true : false)
     },
     setInitialCat: (state) => {
-        state.data = initialCategories;
+        state.data = initialArticles;
     }, 
     // Special reducer for hydrating the state. Special case for next-redux-wrapper
     extraReducers: {
@@ -58,6 +37,6 @@ export const CategorySlice = createSlice({
   },
 });
 
-export const { setActiveCat, setInitialCat} = CategorySlice.actions;
+export const { setActive, setInitialCat} = ArticleSlice.actions;
 
-export default CategorySlice.reducer;
+export default ArticleSlice.reducer;
