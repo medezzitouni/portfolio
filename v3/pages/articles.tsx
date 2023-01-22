@@ -5,9 +5,11 @@ import Layout from '../components/Layout/Layout'
 
 const Article: NextPage = () => {
   return (
-    <div className='h-screen bg-black'>
-      <CommingSoon />
-    </div>
+    <Layout>
+      <div className='h-screen bg-[wheat] '>
+
+      </div>
+    </Layout>
   )
 }
 

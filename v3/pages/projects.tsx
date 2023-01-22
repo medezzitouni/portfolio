@@ -47,12 +47,12 @@ const Project: NextPage = () => {
     
     return (
     <Layout>
-        <div className='pt-[14vh] min-h-[90vh] flex flex-col items-center'>
+        <div className='pt-[14vh] min-h-[78vh] xl:min-h-[90vh] flex flex-col items-center'>
             <div className="mb-6 hidden lg:flex ">
                 <Category />
             </div>
             {projects.length ? 
-                <div className='grid gap-5 lg:grid-cols-3'>
+                <div className='grid gap-5 lg:grid-cols-3 px-6 xl:px-0'>
                     { projects.map(({ title, year, image, link, body }, index) => (
                         <Crad 
                             key={index}

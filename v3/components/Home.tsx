@@ -1,5 +1,6 @@
 import styles from "~styles/home.module.css";
-import { BiChevronRight, BiChevronLeft } from "react-icons/bi";
+import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
+
 import { FunctionComponent, useState } from "react";
 import Socials from "./Socials";
 import Link from "next/link";
@@ -20,9 +21,11 @@ const Home: FunctionComponent = () => {
           >
             <button
                 onClick={handleShow}
-                className={`bg-black z-10 -mr-4 rounded-full p-1.5 shadow-md shadow-black`}
+                className={`z-10 -mr-4 `}
             >
-              {!show ? <BiChevronRight size={20} /> : <BiChevronLeft size={20} />}
+              {!show ? <ChevronRightIcon className="h-8 w-8 p-2 bg-black shadow-md shadow-black rounded-full" /> 
+              : 
+              <ChevronLeftIcon className="h-8 w-8 p-2 shadow-md bg-black shadow-black rounded-full" />}
             </button>
           </div>
           <Socials show={show} />

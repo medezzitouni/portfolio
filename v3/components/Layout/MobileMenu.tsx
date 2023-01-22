@@ -5,26 +5,9 @@ import Category from "../Category";
 import { useCallback, useEffect } from "react";
 import { cn, setupScrolling } from '~lib/utils';
 
-
-
 const [disable, enable] = setupScrolling();
-
-const pages: Page[] = [
-    {
-        name: 'Home',
-        href: '/'
-    },
-    {
-        name: 'About',
-        href: '/about'
-    },
-    {
-        name: 'Articles',
-        href: '/articles'
-    },
-] 
-
-export const MobileMenu: FunctionComponent = () => {
+ 
+export const MobileMenu: FunctionComponent<{pages: Page[]}> = ({ pages }) => {
 
   const [menu, setMenu] = useState('');
   const handleMenu = useCallback((type: string) => {

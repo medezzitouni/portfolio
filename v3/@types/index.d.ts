@@ -16,6 +16,8 @@ interface ComingSoonProps {
 interface Page {
   href: string;
   name: string;
+  active: boolean;
+
 }
 interface CategoryProps {
   data?: Category[];
