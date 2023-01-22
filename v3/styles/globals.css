@@ -5,8 +5,8 @@
 
 @font-face {
   font-family: "AmaticSC";
-  src:url("/assets/fonts/Amatic_SC/AmaticSC-Regular.ttf"),
-  url("/portfolio/assets/fonts/Amatic_SC/AmaticSC-Regular.ttf") format('ttf');
+  src:url("/portfolio/assets/fonts/Amatic_SC/AmaticSC-Regular.ttf"), 
+  url("/assets/fonts/Amatic_SC/AmaticSC-Regular.ttf");
 }
 
 :root {
