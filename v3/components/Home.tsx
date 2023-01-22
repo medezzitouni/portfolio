@@ -23,9 +23,10 @@ const Home: FunctionComponent = () => {
                 onClick={handleShow}
                 className={`z-10 -mr-4 `}
             >
-              {!show ? <ChevronRightIcon className="h-8 w-8 p-2 bg-black shadow-md shadow-black rounded-full" /> 
+              {!show ? 
+              <ChevronRightIcon className="h-8 w-8 p-2 bg-black text-white shadow-md shadow-black rounded-full" /> 
               : 
-              <ChevronLeftIcon className="h-8 w-8 p-2 shadow-md bg-black shadow-black rounded-full" />}
+              <ChevronLeftIcon className="h-8 w-8 p-2 shadow-md bg-black text-white shadow-black rounded-full" />}
             </button>
           </div>
           <Socials show={show} />

@@ -1,18 +1,19 @@
 import type { NextPage } from "next";
 import React from 'react'
 import { SocialProps } from "@types";
+import { cn } from "~lib/utils";
 
 const socials = [
     {
       text: "Github",
-      textColor: "black",
+      color: "black",
       href: "https://github.com/methe-1",
-      svg: (
+      svg: ({ fill }: { fill: string }) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           height="30"
-          fill="black"
+          fill={fill}
           className="bi bi-github"
           viewBox="0 0 16 16"
         >
@@ -22,14 +23,14 @@ const socials = [
     },
     {
       text: "Instagram",
-      textColor: "purple",
+      color: "purple",
       href: "https://www.instagram.com/methe.1/",
-      svg: (
+      svg: ({ fill }: { fill: string }) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           height="30"
-          fill="purple"
+          fill={fill}
           className="bi bi-instagram"
           viewBox="0 0 16 16"
         >
@@ -39,14 +40,14 @@ const socials = [
     },
     {
       text: "LinkedIn",
-      textColor: "#0072b1",
+      color: "#0072b1",
       href: "https://www.linkedin.com/in/methe-1",
-      svg: (
+      svg: ({ fill }: { fill: string }) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           height="30"
-          fill="#0072b1"
+          fill={fill}
           className="bi bi-linkedin"
           viewBox="0 0 16 16"
         >
@@ -57,14 +58,14 @@ const socials = [
     },
     {
       text: "Twitter",
-      textColor: "#00acee",
+      color: "#00acee",
       href: "https://twitter.com/methe___",
-      svg: (
+      svg: ({ fill }: { fill: string }) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           height="30"
-          fill="#00acee"
+          fill={fill}
           className="bi bi-twitter"
           viewBox="0 0 16 16"
         >
@@ -74,14 +75,14 @@ const socials = [
     },
     {
       text: "Resume",
-      textColor: "black",
+      color: "black",
       href: process.env.BACKEND_URL + "/assets/Resume.pdf",
-      svg: (
+      svg: ({ fill }: { fill: string }) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           height="30"
-          fill="dark"
+          fill={fill}
           className={
             "bi bi-arrow-down-circle-fill " +
             " animate__animated animate__shakeX animate__slower animate__delay-1s animate__repeat-3	"
@@ -116,17 +117,19 @@ const Socials : NextPage<SocialProps> = ({ show=true, vertical = true }: SocialP
                 // download={social.text == 'Download Resume'}
                 className="grid place-items-center"
             >
-                <span>
-                  {social.svg}
-                </span>
-                <span
+              <span>
+                {social.svg({ fill: social.color })}
+              </span>
+              <span
                 style={{
-                    color: social.textColor,
+                  color: social.color
                 }}
-                className={` hidden ${show ? "lg:inline" : "lg:hidden"}`}
-                >
+                className={
+                  cn('hidden', show ? "lg:inline" : "lg:hidden")
+                }
+              >
                 {social.text}
-                </span>
+              </span>
             </a>
             </div>
         ))}

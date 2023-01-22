@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, FunctionComponent } from 'react'
 import type { Category as CategoryType, CategoryProps } from '@types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '~store';
-import { setActive, setInitialCat } from '~store/SliceCategory';
+import { setActiveCat, setInitialCat } from '~store/sliceProjects';
 import { setInitialProjects, filterProjects } from "~store/sliceProjects";
 
 const Category: FunctionComponent<CategoryProps> = ({ data, bg_active='bg-white text-secondary', bg_inactive='bg-secondary text-white', filter, clear=() => {} }: CategoryProps) => {
 
-    const categories: CategoryType[] = data || useSelector((state: AppState) => state.categories.data);
+    const categories: CategoryType[] = data || useSelector((state: AppState) => state.projectState.categories);
     const dispatch = useDispatch();
 
     const filterData = filter || useCallback((category: string): void => {
@@ -20,7 +20,7 @@ const Category: FunctionComponent<CategoryProps> = ({ data, bg_active='bg-white 
     }, [])
 
     const setCatAndFilterData = useCallback((category: string): void => {
-        dispatch(setActive(category));
+        dispatch(setActiveCat(category));
         filterData(category);
         clear();
     }, [])

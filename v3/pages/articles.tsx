@@ -4,10 +4,11 @@ import CommingSoon from '../components/CommingSoon'
 import Layout from '../components/Layout/Layout'
 
 const Article: NextPage = () => {
+  
   return (
     <Layout>
-      <div className='h-screen bg-[wheat] '>
-        <CommingSoon />
+      <div className='h-screen'>
+       
       </div>
     </Layout>
   )

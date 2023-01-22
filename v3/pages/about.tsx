@@ -6,7 +6,7 @@ import Layout from 'components/Layout/Layout'
 const About: NextPage = () => {
   return (
     <Layout>
-      <div className='h-screen bg-[wheat] '>
+      <div className='h-screen '>
         <CommingSoon />
       </div>
     </Layout>

@@ -8,7 +8,10 @@ module.exports = {
     extend: {
       colors : {
         primary: 'wheat',
-        secondary: 'rgba(56, 65, 59, .8)'
+        secondary: 'rgba(56, 65, 59, .8)',
+        white: 'whitesmoke',
+        black: 'black',
+        instagram: 'purple'
       },
       flexBasis: {
         '3/10': '30%',

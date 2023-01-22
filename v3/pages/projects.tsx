@@ -38,7 +38,7 @@ const initialCategories: CategoryType[] = [
 
 const Project: NextPage = () => {
     
-    const projects: ProjectTypes[] = useSelector((state: AppState) => state.projects.data);
+    const projects: ProjectTypes[] = useSelector((state: AppState) => state.projectState.projects);
     const dispatch = useDispatch();
 
     useEffect(() => {
