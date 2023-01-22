@@ -3,6 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "AmaticSC";
+  src:url("/assets/fonts/Amatic_SC/AmaticSC-Regular.ttf");
+}
+
+@font-face {
+  font-family: "AmaticSC";
+  src:url("/portfolio/assets/fonts/Amatic_SC/AmaticSC-Regular.ttf");
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
