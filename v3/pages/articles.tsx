@@ -7,7 +7,7 @@ const Article: NextPage = () => {
   return (
     <Layout>
       <div className='h-screen bg-[wheat] '>
-
+        <CommingSoon />
       </div>
     </Layout>
   )

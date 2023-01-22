@@ -8,7 +8,7 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = ({
   pathname = true,
 }: ComingSoonProps) => {
   return (
-    <div className="bg-inherit h-[100%] w-full flex gap-4 items-center justify-center ">
+    <div className="bg-inherit h-[100%] w-full flex gap-4 text-xl items-center justify-center ">
       <span className={cn('px-5 border-r-2 border-white', pathname ? 'flex' : 'hidden')}>
         {router.pathname == '/'
           ? 'Home'

@@ -39,7 +39,7 @@ const Header: FunctionComponent<HeaderProps> = ({
     useEffect(() => {
       const handleRouteChange = (url: any, { shallow }: { shallow: any}) => {
         setPages(pages.map(page => {
-          page.active = page.href == url;
+          page.active = process.env.BACKEND_URL + page.href == url;
           return page;
         }))
       }
