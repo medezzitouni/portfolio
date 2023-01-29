@@ -15,7 +15,7 @@ const initial_pages: Page[] = [
   {
     name: 'Projects',
     href: '/projects',
-    active: true,
+    active: false,
   },
   {
     name: 'About',
@@ -39,19 +39,22 @@ const Header: FunctionComponent<HeaderProps> = ({
     useEffect(() => {
       const handleRouteChange = (url: any, { shallow }: { shallow: any}) => {
         setPages(pages.map(page => {
-          console.log(process.env.BACKEND_URL + page.href, url, process.env.BACKEND_URL + page.href == url);
-          page.active = process.env.BACKEND_URL + page.href == url;
+          page.active = process.env.APP_BASE_URL + page.href == url;
           return page;
         }))
       }
   
       router.events.on('routeChangeComplete', handleRouteChange)
-  
+      
+      // run once at the first component rendering 
+      handleRouteChange(router.pathname, { shallow: null});
+      
       // If the component is unmounted, unsubscribe
       // from the event with the `off` method:
       return () => {
         router.events.off('routeChangeComplete', handleRouteChange)
       }
+      
     }, [])
     return (
         <header className={className}>
@@ -96,7 +99,7 @@ const Header: FunctionComponent<HeaderProps> = ({
             <div className="grow lg:grow-0 lg:ml-20 pt-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={process.env.BACKEND_URL + '/assets/profile.png'}
+                src={process.env.APP_BASE_URL + '/assets/profile.png'}
                 height={'60rem'}
                 width={'60rem'}
                 alt="profile"
