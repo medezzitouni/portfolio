@@ -76,7 +76,7 @@ const socials = [
     {
       text: "Resume",
       color: "black",
-      href: process.env.BACKEND_URL + "/assets/Resume.pdf",
+      href: process.env.NEXT_PUBLIC_APP_BASE_URL + "/assets/Resume.pdf",
       svg: ({ fill }: { fill: string }) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"

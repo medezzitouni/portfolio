@@ -59,7 +59,7 @@ const Home: FunctionComponent = () => {
               <div className="w-[40%] lg:w-[50%]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={process.env.BACKEND_URL +  "/assets/profile.png"}
+                  src={process.env.NEXT_PUBLIC_APP_BASE_URL +  "/assets/profile.png"}
                   alt="profile"
                 />    
               </div> 

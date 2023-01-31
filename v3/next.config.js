@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 
-const { ENV } = process.env
+const { NEXT_PUBLIC_APP_BASE_URL } = process.env
 
 const nextConfig = {
   reactStrictMode: true,
-  assetPrefix: ENV == 'prod' ? '/portfolio/' : '',
-  basePath: ENV == 'prod' ? '/portfolio' : '',
+  assetPrefix: NEXT_PUBLIC_APP_BASE_URL,
+  basePath: NEXT_PUBLIC_APP_BASE_URL,
   images: {
     loader: 'imgix',
     path: ''
