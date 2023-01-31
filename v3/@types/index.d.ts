@@ -54,3 +54,16 @@ interface Project {
   body: string;
   category: "Professional" | "Personal" | "Contribution" | "Github";
 }
+
+interface ArticleType{
+  id: string; 
+  media_type: 'VIDEO' | 'IMAGE' | 'CAROUSEL_ALBUM';
+  media_url: string;
+  caption: string;
+}
+
+interface ArticleFetch {
+  data: ArticleType[],
+  loading?: boolean,
+  error: any
+}

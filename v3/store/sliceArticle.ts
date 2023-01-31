@@ -1,42 +1,62 @@
-import { PayloadAction } from './../node_modules/@reduxjs/toolkit/src/createAction';
-// create slice for projects and another for categories 
-
-import { createSlice, Action } from "@reduxjs/toolkit";
-import { AppState } from "./index";
+import { AppState } from '~store';
+import { PayloadAction, PayloadActionCreator} from './../node_modules/@reduxjs/toolkit/src/createAction';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
-import { Category } from "@types";
+import type { ArticleType, ArticleFetch } from "@types";
+import { AxiosResponse } from 'axios';
+import client from '~lib/httpClient'
 
-const initialArticles: Category[] = []
 
-// Actual Slice
-export const ArticleSlice = createSlice({
-  name: "articles",
-  initialState : {
-    data: initialArticles
-  } ,
-  reducers: {
+const initialArticles: ArticleType[] = []
 
-    setActive: (state, action: PayloadAction<string>) => {
-        state.data.forEach((cat) => cat.active = cat.name == action.payload ? true : false)
-    },
-    setInitialCat: (state) => {
-        state.data = initialArticles;
-    }, 
-    // Special reducer for hydrating the state. Special case for next-redux-wrapper
-    extraReducers: {
-        // @ts-ignore    
-        [HYDRATE]: (state, action) => {
-            // state.categories = action.payload.state.category.categories;
-            return {
-                ...state,
-                ...action.payload.state,
-            }
-        },
-    },
 
-  },
+interface UnknownError{ message: string }
+
+export const fetchArticles = createAsyncThunk('artivles/fetchArticles', async () => {
+  const fields = 'id,caption,media_type,media_url'
+  const res: AxiosResponse = await client.get(`/me/media?fields=${fields}&access_token=${process.env.NEXT_PUBLIC_IG_TOKEN}`);
+  return res.data.data;
 });
 
-export const { setActive, setInitialCat} = ArticleSlice.actions;
+// Actual Slice
+export const articleSlice = createSlice({
+  name: "articles",
+  initialState : {
+    data: initialArticles,
+    loading: false,
+    error: undefined
+  },
+  reducers: {
+    // Special reducer for hydrating the state. Special case for next-redux-wrapper
+    // extraReducers: 
+    
+  },
+  extraReducers: (builder: any)=> {
+    builder.addCase([HYDRATE], (state: AppState, action: PayloadAction<any>) => {
+        return {
+            ...state,
+            ...action.payload.state,
+        }
+    })
+    builder.addCase(fetchArticles.pending, (state: ArticleFetch) => {
+        state.loading = true;
+      });
+  
+    builder.addCase(fetchArticles.fulfilled, (state: ArticleFetch, action: PayloadAction<ArticleType[]>) => {
+      console.log('Fulfilled', action)
+      state.loading = false;
+      state.data = action.payload;
+      state.error = null
+    })
 
-export default ArticleSlice.reducer;
+    builder.addCase(fetchArticles.rejected, (state: ArticleFetch, action: { error: UnknownError }) => {
+      state.loading = false;
+      state.data = [];
+      state.error = action.error.message
+    })
+},
+});
+
+// export const {  } = articleSlice.actions;
+
+export default articleSlice.reducer;

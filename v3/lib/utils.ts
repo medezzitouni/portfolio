@@ -6,6 +6,8 @@ export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));
 };
 
+export const IsSSR = () => typeof window === 'undefined';
+
 
 export const setupScrolling = () => {
   var keys = {37: 1, 38: 1, 39: 1, 40: 1};
@@ -56,3 +58,7 @@ var wheelEvent = typeof window === "object" && 'onwheel' in document.createEleme
   return [disableScroll, enableScroll];
 }
 
+
+export const truncate = (str: string, n: number) => {
+  return (str.length > n) ? str.slice(0, n-1) + '...' : str;
+};
