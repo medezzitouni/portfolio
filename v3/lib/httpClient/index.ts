@@ -1,13 +1,10 @@
 import axios from 'axios';
-import { API_URL } from './constants';
 import JWTToken from './token';
 import { IsSSR } from '../utils';
 
 JWTToken.setup();
 
-const client = axios.create({
-  baseURL: API_URL,
-});
+const client = axios.create();
 
 client.interceptors.request.use(
   function (config) {
@@ -15,8 +12,9 @@ client.interceptors.request.use(
     const token = JWTToken.getToken();
 
     if (token && !IsSSR()) {
-      config.headers!['Authorization'] = token;
-      // config.headers!['Content-Type'] = 'multipart/form-data';
+      // config.headers!['Authorization'] = token;
+      config.headers!['Content-Type'] = 'application/json';
+      // config.headers!["Cookie"] = "csrftoken=gJUaxtoOPkKk0RT4QUACaIoJBc1miFSg; ig_did=5A739C41-4B2C-465D-8958-6455B0F7A0CA; ig_nrcb=1; mid=Y7XK-QAEAAGtxX4q-dRqckAGp2e3"
     }
 
     return config;

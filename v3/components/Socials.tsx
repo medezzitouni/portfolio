@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import React from 'react'
 import { SocialProps } from "@types";
 import { cn } from "~lib/utils";
+import { BASE_URL } from "~lib/constants";
 
 const socials = [
     {
@@ -76,7 +77,7 @@ const socials = [
     {
       text: "Resume",
       color: "black",
-      href: process.env.NEXT_PUBLIC_APP_BASE_URL + "/assets/Resume.pdf",
+      href: BASE_URL + "/assets/Resume.pdf",
       svg: ({ fill }: { fill: string }) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"

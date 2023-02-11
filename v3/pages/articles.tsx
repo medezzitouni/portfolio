@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { AppState, AppThunkDispatch } from '~store/index';
 import { fetchArticles } from '~store/sliceArticle';
 import { cn, truncate } from '~lib/utils';
+import { DEBUG } from '~lib/constants';
 
 interface PostType {
   id?: string;
@@ -15,11 +16,7 @@ interface PostType {
   className?: string;
 }
 
-const Media = ({
-  media_type,
-  media_url,
-  className,
-}: PostType) => {
+const Media = ({ media_type, media_url, className }: PostType) => {
   switch (media_type) {
     case 'VIDEO':
       return (
@@ -31,7 +28,7 @@ const Media = ({
             // @ts-ignore
             type="video/mp4"
             controls
-            playsinline
+            playsInline
           ></video>
         </>
       );
@@ -48,21 +45,46 @@ const Media = ({
   }
 };
 
-const Post = ({
-  media_type,
-  media_url,
-  className,
-  caption
-}: PostType) => {
+const Post = ({ media_type, media_url, className, caption }: PostType) => {
   return (
     <div className={cn('h-[100%] ', className)}>
-      <Media media_type={media_type} media_url={media_url} className='h-[80%] drop-shadow-lg rounded-xl' />
-      <div className='px-3 text-2xl text-black font-amatic backdrop-blur-sm font-bold'>
+      <Media
+        media_type={media_type}
+        media_url={media_url}
+        className="h-[80%] drop-shadow-lg rounded-xl"
+      />
+      <div className="px-3 text-2xl text-black font-amatic backdrop-blur-sm font-bold">
         {truncate(`${caption}`, 100)}
       </div>
     </div>
-  )
+  );
 };
+const LoadingSkeleton = () => (
+  <div className="border shadow rounded-xl p-4 max-w-sm w-full mx-auto">
+    <div className="animate-pulse flex flex-col space-y-2">
+      <div className="rounded-lg bg-slate-700 h-44 w-full"></div>
+      {/* two lines at the bottom */}
+      <div className="space-y-1 py-1">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+        <div className="h-2 bg-slate-700 rounded"></div>
+      </div>
+      {/* two lines at the bottom */}
+    </div>
+  </div>
+);
+
+const ErrorMessage = ({ error }: { error: any}) => (
+  <div className='flex justify-center items-center h-[75vh] w-full'>
+    <div className='bg-white p-4 rounded-md'>
+      {DEBUG ? 'ERROR ' +  error : 'Something went wrong!'}
+    </div>
+  </div>
+);
+
 const Article: NextPage = () => {
   const { data, loading, error }: ArticleFetch = useSelector(
     (state: AppState) => state.articles,
@@ -73,19 +95,29 @@ const Article: NextPage = () => {
   useEffect(() => {
     dispatch(fetchArticles());
   }, [dispatch]);
-  if (loading) return <div>loading...</div>;
-  if (error) return <div>{error}</div>;
-  console.log('res ====================================');
-  console.log({ data, loading, error });
-  console.log('====================================');
+
   return (
     <Layout>
       <div className="pt-[14vh] min-h-[78vh]">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 md:place-items-center gap-y-12 md:gap-y-12 md:gap-x-10  px-2 md:px-20 ">
-          {data?.map((article, index) => (
-            <Post key={index} className="" {...article} />
-          ))}
-        </div>
+        { error ? <ErrorMessage error={error} /> :
+          <div className={`
+          grid md:grid-cols-2
+          lg:grid-cols-3
+          md:place-items-center
+          gap-y-12
+          md:gap-y-12
+          md:gap-x-10 
+          px-2 md:px-20
+          `}> { 
+            loading ?
+              [0,1,2,3,4,5].map((el, index) => <LoadingSkeleton key={index} />)
+            : 
+              data?.map((article, index) => (
+                <Post key={index} className="" {...article} />
+              ))
+            }
+          </div>
+        }
       </div>
     </Layout>
   );

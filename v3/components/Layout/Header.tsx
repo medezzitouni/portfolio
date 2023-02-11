@@ -5,6 +5,7 @@ import { HeaderProps, Page } from '@types';
 import { MobileMenu } from './MobileMenu';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { cn } from '~lib/utils';
+import { BASE_URL } from '~lib/constants';
 
 const initial_pages: Page[] = [
   {
@@ -39,7 +40,7 @@ const Header: FunctionComponent<HeaderProps> = ({
     useEffect(() => {
       const handleRouteChange = (url: any, { shallow }: { shallow: any}) => {
         setPages(pages.map(page => {
-          page.active = process.env.NEXT_PUBLIC_APP_BASE_URL + page.href == url;
+          page.active = BASE_URL + page.href == url;
           return page;
         }))
       }
@@ -47,7 +48,7 @@ const Header: FunctionComponent<HeaderProps> = ({
       router.events.on('routeChangeComplete', handleRouteChange)
       
       // run once at the first component rendering 
-      handleRouteChange(process.env.NEXT_PUBLIC_APP_BASE_URL + router.pathname, { shallow: null});
+      handleRouteChange(BASE_URL + router.pathname, { shallow: null});
 
       // If the component is unmounted, unsubscribe
       // from the event with the `off` method:
@@ -99,7 +100,7 @@ const Header: FunctionComponent<HeaderProps> = ({
             <div className="grow lg:grow-0 lg:ml-20 pt-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={process.env.NEXT_PUBLIC_APP_BASE_URL + '/assets/profile.png'}
+                src={BASE_URL + '/assets/profile.png'}
                 height={'60rem'}
                 width={'60rem'}
                 alt="profile"
