@@ -24,6 +24,8 @@
     "clsx": "^1.2.1",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.7",
+    "firebase": "^9.17.1",
+    "firebase-admin": "^11.5.0",
     "instagram-graph-api": "^5.0.0",
     "next": "13.0.7",
     "next-redux-wrapper": "^8.1.0",

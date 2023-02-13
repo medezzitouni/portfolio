@@ -24,7 +24,9 @@
       "~icons/*": ["icons/*"],
       "@types/*": ["@types/*"],
       "~store/*": ["store/*"],
-      "~store": ["store/index"]
+      "~store": ["store/index"],
+      "~config/*": ["config/*"],
+      "~db/*": ["lib/Firebase/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

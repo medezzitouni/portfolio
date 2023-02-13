@@ -12,10 +12,10 @@ const nextConfig = {
   },
   async headers() {
     
-    const corsWhitelist = [
-      'http://localhost:3000',
-      'https://methe-1.github.io',
-    ];
+    // const corsWhitelist = [
+    //   'http://localhost:3000',
+    //   'https://methe-1.github.io',
+    // ];
 
     return [
       {

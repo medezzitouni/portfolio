@@ -33,3 +33,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+config/AdminServiceKey.json
+config/serviceKey.json
