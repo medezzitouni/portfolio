@@ -1,0 +1,12 @@
+name: refresh-ig-token-cron
+on:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call our API route to refresh an IG token
+        run: |
+          curl --request GET \
+          --url 'https://portfolio-methe.vercel.app/portfolio/api/refreshTokenCron'
