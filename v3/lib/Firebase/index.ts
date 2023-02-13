@@ -1,1 +1,1 @@
-export { getToken } from './dao';
+export { getToken, updateToken } from './dao';
