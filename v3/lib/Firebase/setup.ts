@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 import { initializeApp } from 'firebase-admin/app';
-import { credential } from 'firebase-admin'
+import { credential, apps } from 'firebase-admin'
 import { getFirestore } from 'firebase-admin/firestore'
 import { 
     // firebase credentials
@@ -33,21 +33,22 @@ import {
 // For Firebase JS SDK v7.20.0 and later, measurementId is optiona
 
 // Initialize Firebase Admin
-initializeApp({
-    credential: credential.cert({
-        // @ts-ignore
-        type: type,
-        projectId: project_id,
-        privateKeyId: private_key_id,
-        privateKey: private_key && private_key.replace(/\\n/gm, "\n"),
-        clientEmail: client_email,
-        clientId: client_id,
-        authUri: auth_uri,
-        tokenUri: token_uri,
-        authProviderX509CertUrl: auth_provider_x509_cert_url,
-        clientC509CertUrl: client_x509_cert_url
-    })
-});
+if(apps.length == 0)
+    initializeApp({
+        credential: credential.cert({
+            // @ts-ignore
+            type: type,
+            projectId: project_id,
+            privateKeyId: private_key_id,
+            privateKey: private_key && private_key.replace(/\\n/gm, "\n"),
+            clientEmail: client_email,
+            clientId: client_id,
+            authUri: auth_uri,
+            tokenUri: token_uri,
+            authProviderX509CertUrl: auth_provider_x509_cert_url,
+            clientC509CertUrl: client_x509_cert_url
+        })
+    });
 
 // let FirebaseAnalytics;
 // if (app.name && typeof window !== 'undefined') 

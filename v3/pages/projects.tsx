@@ -9,6 +9,7 @@ import type { Project as ProjectTypes, Category as CategoryType } from '@types'
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from '~store';
 import { setInitialProjects } from "~store/sliceProjects";
+import { NextRouter, withRouter } from "next/router";
 
 
 
@@ -36,13 +37,15 @@ const initialCategories: CategoryType[] = [
     },
 ]
 
-const Project: NextPage = () => {
+const Project: NextPage<{ router: NextRouter }> = ({ router }) => {
     
     const projects: ProjectTypes[] = useSelector((state: AppState) => state.projectState.projects);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(setInitialProjects(null));
+        // prefetch Posts page 
+        router.prefetch('/posts');
     }, []);
     
     return (
@@ -77,4 +80,4 @@ const Project: NextPage = () => {
     </Layout>
   );
 };
-export default Project;
+export default withRouter(Project);

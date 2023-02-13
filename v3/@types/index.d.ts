@@ -67,3 +67,11 @@ interface ArticleFetch {
   loading?: boolean,
   error: any
 }
+
+interface PostType {
+  id?: string;
+  media_type: string;
+  media_url: string;
+  caption?: string;
+  className?: string;
+}

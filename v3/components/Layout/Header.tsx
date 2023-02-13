@@ -25,7 +25,7 @@ const initial_pages: Page[] = [
   },
   {
     name: 'Posts',
-    href: '/articles',
+    href: '/posts',
     active: false,
   },
 ];
@@ -52,6 +52,7 @@ const Header: FunctionComponent<HeaderProps> = ({
 
       // If the component is unmounted, unsubscribe
       // from the event with the `off` method:
+
       return () => {
         router.events.off('routeChangeComplete', handleRouteChange)
       }
